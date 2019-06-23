@@ -1,4 +1,113 @@
 import tkinter
+import socket
+import threading 
+
+global s
+s=0
+global data
+data=""
+
+
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#                                          ///////////////////////////////////////
+#                                                           SQUALL  
+#                                          ///////////////////////////////////////
+
+
+
+
+
+
+
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+#                                          ///////////////////////////////////////
+#                                                    SOCKET ET THREADING
+#                                          ///////////////////////////////////////
+
+ 
+
+hote = "localhost"
+port = 15555
+socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+class THE(threading.Thread):
+    def __init__(self,socket):
+        threading.Thread.__init__(self)
+        self.conn= socket
+
+    def run(self):
+        qit=0
+        while True:
+            #print("Entrez votre message")
+            if s==1:
+                data = str(envoyer)
+                s=0
+                if "exit" in data:
+                    qit=1
+                data = data.encode("utf8")
+                socket.sendall(data)
+                if qit==1:
+                    print ("Déconnecté!")
+                    socket.close()
+                    break
+
+
+class THR(threading.Thread):
+    def __init__(self,socket):
+        threading.Thread.__init__(self)
+        self.conn= socket
+
+    def run(self):
+        while True:
+            from_server=socket.recv(255)
+            from_server= from_server.decode("utf8")
+            #print(from_server)
+            listbox.insert(from_server+"\n")
+
+
+
+def squall():
+    
+    socket.connect((hote, port))
+    print ("Connecté sur le port {}".format(port))
+
+    emission=THE(socket)
+    reception=THR(socket)
+
+    emission.start()
+    reception.start()
+
+
+    emission.join()
+    reception.join()
+
+
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+#                                          ///////////////////////////////////////
+#                                                        TKINTER
+#                                          ///////////////////////////////////////
+
+
 
 # barre de scroll
 from tkinter import ttk
@@ -8,7 +117,14 @@ fenetre = tkinter.Tk()
 
 
 def envoyer():
-    listbox.insert(tkinter.END, (messchat.get()+ "\n" +message.get()+"\n"))
+    #on prend le contenu du input tkinter, on le sauvegarde puis le retourne
+    # à data
+    data=(message.get()+"\n")
+    message.delete(0, tkinter.END)
+    s=1
+    
+
+
 
 #couleur d'arrière plan
 bgcolor="#4065A4"
@@ -40,9 +156,6 @@ titre = tkinter.Label(
 #titre.pack()
 titre.grid(row=0, column=2, sticky=tkinter.W)
 
-#la variable dynamique qui s'affichera sur le chat
-messchat = tkinter.StringVar()
-messchat.set("   ")
 
 scroll = tkinter.Scrollbar(frame2)
 scroll.pack(side=tkinter.RIGHT, fill=tkinter.Y)
@@ -54,7 +167,7 @@ scroll.config(command=listbox.yview)
 
 
 #boutons
-btn1 = tkinter.Button(frame3, text="Se connecter",font=("arial", 10))
+btn1 = tkinter.Button(frame3, text="Se connecter",font=("arial", 10), command=squall)
 # btn1.pack()
 btn1.grid(row=0, column=0, sticky=tkinter.W)
 
@@ -84,5 +197,6 @@ main_frame.pack()
 #affichage de la fenetre
 fenetre.mainloop()
 
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

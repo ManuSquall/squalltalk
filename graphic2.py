@@ -10,6 +10,7 @@ fenetre = tkinter.Tk()
 def envoyer():
     # messchat.set(messchat.get()+ "\n" +message.get()+"\n")
     listbox.insert(tkinter.END, (messchat.get()+ "\n" +message.get()+"\n"))
+    message.delete(0, tkinter.END)
 
 
 
