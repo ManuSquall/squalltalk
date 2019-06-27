@@ -53,6 +53,7 @@ class THR(threading.Thread):
                             text="client "+ str(address)+message
                             text=text.encode("utf8")
                             i.sendall(text)
+                            #print("message envoyé au client: ", text)
                         #/////////////////////////
                         # Affichage au niveau de chaque machine
                         # text="client "+ str(address)+message
