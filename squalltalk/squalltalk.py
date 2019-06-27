@@ -49,17 +49,15 @@ class THE(threading.Thread):
         qit=0
         while True:
             #print("Entrez votre message")
-            if s==1:
-                data = str(envoyer)
-                s=0
-                if "exit" in data:
-                    qit=1
-                data = data.encode("utf8")
-                socket.sendall(data)
-                if qit==1:
-                    print ("Déconnecté!")
-                    socket.close()
-                    break
+            data=input()
+            if "exit" in data:
+                qit=1
+            data = data.encode("utf8")
+            socket.sendall(data)
+            if qit==1:
+                print ("Déconnecté!")
+                socket.close()
+                break
 
 
 class THR(threading.Thread):
@@ -88,8 +86,8 @@ def squall():
     reception.start()
 
 
-    emission.join()
-    reception.join()
+    # emission.join()
+    # reception.join()
 
 
 
@@ -116,7 +114,7 @@ from tkinter import ttk
 fenetre = tkinter.Tk()
 
 
-def envoyer():
+def envoyer(event):
     #on prend le contenu du input tkinter, on le sauvegarde puis le retourne
     # à data
     data=(message.get()+"\n")
@@ -184,9 +182,10 @@ message = tkinter.Entry(
 # message.pack()
 message.grid(row=1, column=0, sticky=tkinter.W)
 
-btn2 = tkinter.Button(frame3, text="Envoyer",font=("arial", 10), command=envoyer)
+btn2 = tkinter.Button(frame3, text="Envoyer",font=("arial", 10))
 # btn2.pack()
 btn2.grid(row=1, column=1, sticky=tkinter.W)
+btn2.bind("<Button-1>", envoyer)
 
 frame1.pack(expand=tkinter.YES)
 frame2.pack()
@@ -194,8 +193,11 @@ frame3.pack(expand=tkinter.YES)
 
 main_frame.pack()
 
-#affichage de la fenetre
+fenetre.bind()
+
+#boucle principale d'affichage de la fenetre
 fenetre.mainloop()
+
 
 # ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
