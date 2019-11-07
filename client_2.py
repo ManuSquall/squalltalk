@@ -46,17 +46,7 @@ class THE(threading.Thread):
         self.conn= socket
 
     def run(self):
-        # qit=0
         
-        # data=message.get()+"\n"
-        # if "exit" in data:
-        #     qit=1
-        # if data!="":
-        #     data = data.encode("utf8")
-        #     socket.sendall(data)
-        # if qit==1:
-        #     print ("Déconnecté!")
-        #     socket.close()
         data = "client connecté"
         data = data.encode("utf8")
         socket.sendall(data)
@@ -83,14 +73,11 @@ reception=THR(socket)
 
 def squall():
     
-    
-    #  print(message.get())
     emission.start()
     reception.start()
 
 
-    # emission.join()
-    # reception.join()
+    
 
 
 
