@@ -1,5 +1,10 @@
 {
-    "python.pythonPath": "S:\\Program Files\\Python37\\python.exe",
+    "python.pythonPath": "C:\\Users\\Manu Ndiaye\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#481E40",
+        "titleBar.activeBackground": "#642A5A",
+        "titleBar.activeForeground": "#FCF9FC"
+    }
 }
