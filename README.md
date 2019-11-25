@@ -18,4 +18,4 @@ the goal of this python project is to create a communication between two or more
 
 
 
-# Made by ManuSquall with purple 💜 lust :-)
+# Made with purple 💜 lust :-)
