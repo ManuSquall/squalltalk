@@ -13,7 +13,7 @@ the goal of this python project is to create a communication between two or more
 * if you want more communicator duplicate the "client_X.py" file and add as many emission and reception thread that you want communicator
 
 
-* In the command line, RUN FIRSTLY THE SERVEUR.PY FILE and ONLY AFTER HIM the client files, it won't work unless that, the server must be up to exhange the 
+* In the command line, RUN FIRSTLY THE SERVEUR.PY FILE and ONLY AFTER IT the client files, it won't work unless that, the server must be up to exhange the 
 * you can run them with the command: "py serveur.py" => "py TheFile"
 
 
