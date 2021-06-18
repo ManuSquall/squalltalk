@@ -2,11 +2,11 @@
 # SquallTalk
 
 <!-- Description -->
-the goal of this python project is to create a communication between two or more device with an GUI as Tkinter.
+![output8](/readme/output8.png)
 
 ## Context
-
 <!-- Why am i making this -->
+the goal of this python project is to create a communication between two or more device with an GUI as Tkinter.
 
 ## Tools used
 <!-- Packages, external librairies, IDE, utilitaries used -->
