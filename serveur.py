@@ -61,7 +61,9 @@ class THR(threading.Thread):
 socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socket.bind(('', 15555))
 
-
+print("==================================================:")
+print("\nServeur démarré et à l'écoute de connexion cliente:\n")
+print("==================================================:")
 
 
  # initialisation des threads
