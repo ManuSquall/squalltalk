@@ -63,10 +63,9 @@ This project is licensed under the [CC0 1.0 Universal](https://creativecommons.o
 
 
 ## Acknowledgments
-
 <!-- inspiration, research stuff -->
-*
-*
+* https://wiki.python.org/moin/TkInter
+* https://tkdocs.com/tutorial/index.html
 *
 
 
